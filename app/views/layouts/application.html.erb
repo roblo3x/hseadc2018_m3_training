@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hseadc2018M3</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+
+
+    <menu class="O_Menubar">
+      <%= link_to 'Categories', categories_path %>
+      <%= link_to 'Products', products_path %>
+      Cart: <%= @cart.cart_items.count %>
+      <%= link_to 'Order', orders_path(user_id: @cart.user_id, cart_id: @cart.id), method: :post, class: 'A_Button' %>
+    </menu>
+
+    <%= yield :breadcrumbs %>
+
+    <%= yield %>
+  </body>
+</html>
